@@ -1,0 +1,14 @@
+.cardGlobal{
+    max-width: 1200px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.cardSecundaria{
+    max-width: 1000px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

@@ -9,6 +9,7 @@
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <!-- Google Fonts Roboto -->
     <link
       rel="stylesheet"
@@ -20,6 +21,27 @@
     <script type="text/javascript" src="js/qrcode.js"></script>
   </head>
   <body>
+    <div class="card cardGlobal">
+      <div class="card cardSecundaria">
+      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+          class="img-fluid"
+        />
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+        </a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the bulk of the
+          card's content.
+        </p>
+        <a href="#!" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+    </div>
     <input id="qr" type="text" placeholder="Ingresa algún texto">
     <button id="generarCodigo" onclick="generarCodigo()" text-align: center;>Generar</button> 
     <div id="codigoQR"></div>  
@@ -36,7 +58,7 @@
   });
   
   function generarCodigo(){
-  alert("entro");
+    alert("entro");
     var message = document.getElementById('qr');
     if(!message.value){
     alert("input a text");
