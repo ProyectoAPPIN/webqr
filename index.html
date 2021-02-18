@@ -19,53 +19,53 @@
     <link rel="stylesheet" href="css/mdb.min.css" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/qrcode.js"></script>
+    <script type="text/javascript" src="js/creacionQRlavamanos.js"></script>
   </head>
   <body>
     <div class="card cardGlobal">
+      <div class="card-title"><img src="img/bannerGeneral.jpg" style="width: 100%; height: 150px;"></div>
       <div class="card cardSecundaria">
-      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-        <img
-          src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-          class="img-fluid"
-        />
+      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">        
+        <div id="qrResult">
+        </div>
         <a href="#!">
           <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
         </a>
       </div>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk of the
-          card's content.
-        </p>
-        <a href="#!" class="btn btn-primary">Button</a>
+        <h5 class="card-title">Codigo QR - Lavamanos</h5>       
       </div>
     </div>
-    </div>
-    <input id="qr" type="text" placeholder="Ingresa algún texto">
-    <button id="generarCodigo" onclick="generarCodigo()" text-align: center;>Generar</button> 
+    </div>    
     <div id="codigoQR"></div>  
-  </body>
-  <div id="qrResult" style="height:300px; width:300px">
-
-  </div>
-  
-  
+  </body>   
   <script type="text/javascript">
+  $(document).ready(function () {    
+	  generarCodigo();
+  });
   var qrcode = new QRCode(document.getElementById('qrResult'), {
   width:300,
   height:300
   });
   
   function generarCodigo(){
-    alert("entro");
-    var message = document.getElementById('qr');
-    if(!message.value){
-    alert("input a text");
-    message.focus();
-    return;
-    }
-    qrcode.makeCode(message.value);
+    var codigoLavamanos = '2';
+	  var codInstitucion = '1';
+
+	  var fechaactual = new Date();
+	  var dia = fechaactual.getDate();
+	  var mes = fechaactual.getMonth();
+	  var ahno = fechaactual.getFullYear(); 
+    var mesConcatenado = ""; 	
+     
+	  mes =  mes + 1;    
+    mesConcatenado = "0" + mes;   
+    fechaDia =  dia + "/" + mesConcatenado + "/" + ahno ; 
+	 
+	  //alert(fechaDia);
+    let cadena = "";
+    cadena += '[{"codLavamanos"'+":"+'"'+codigoLavamanos+'"'+','+'"codInstitucion"'+":"+'"'+codInstitucion+'"'+','+'"fecha"'+":"+'"'+fechaDia+'"'+'}]';
+    qrcode.makeCode(cadena);    
   }
   </script>
 
